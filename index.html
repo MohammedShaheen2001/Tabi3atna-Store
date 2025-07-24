@@ -251,7 +251,16 @@
 		
 </style>
 
-
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,ar',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'translate-widget');
+  }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
 
@@ -284,6 +293,7 @@
             <option value="cat1.html">For Cheese</a></option>
             <option value="cat2.html">For Ghee</option>
         </select>
+	    <div id="translate-widget" style="margin-top: 10px;"></div>
     </div>
 	
     <h2>Featured Products</h2>
