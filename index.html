@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
     <title>Tabi3atna Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -168,7 +169,7 @@
         .shopping-cart-container {
             position: absolute;
             top: 20px;
-            right: 170px;
+            right: 100px;
             color: white;
         }
 
@@ -247,6 +248,31 @@
   }
 }
 
+.short-description {
+    overflow: hidden;
+    max-height: 60px;
+    position: relative;
+    transition: max-height 0.3s ease-in-out;
+}
+.short-description.expanded {
+    max-height: 1000px;
+}
+.read-more {
+    color: #007bff;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 5px;
+}
+.fade-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to top, white, transparent);
+    display: block;
+}
+
 
 		
 </style>
@@ -261,74 +287,196 @@
   }
 </script>
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
 </head>
 <body>
 
 <header>
+<div id="google_translate_element" style="position: absolute; top: 20px; left: 20px; z-index: 999;"></div>
     <div class="header-content">
         <h1>Tabi3atna Store</h1>
         <p>"Tabi3atna — Pure Dairy, Moldovan Touch."</p>
 		
     </div>
+	
     <div class="gift-box">
         <img class="gift-image" src="tabitna.jpeg" alt="Gift">
     </div>
 <div class="login-register">
-        <a href="login interface.html">Login</a> | <a href="Register interface.html">Register</a>
+        <a href="#about">About US</a>
     </div>
+
 	<div class="shopping-cart-container">
 	<a href="shoppingcart.html">CART</a>
         
         <i class="fas fa-shopping-cart"></i>
         <span class="cart-counter">0</span>
+		
+		
+		
 </header>
 
 <img src="back1.jpeg" alt="Background Image" style="position: fixed; z-index: -1; width: 100%; height: 100%; top: 0; left: 0; opacity: 0.7;">
 
 
 <div class="container">
-    <div class="category">
-        <select name="category" onchange="location = this.value;">
-            <option value="E-Gift Store.html">All Categories</option>
-            <option value="cat1.html">For Cheese</a></option>
-            <option value="cat2.html">For Ghee</option>
-        </select>
-	    <div id="translate-widget" style="margin-top: 10px;"></div>
-    </div>
+<div id="translate-widget" style="margin-top: 10px;"></div>
+   
+
+				
 	
     <h2>Featured Products</h2>
-    <div class="product">
-        <img src="1.png" alt="Product 1">
-        <h3>Fresh Qareesh Cheese</h3>
-        <p class="description">Fresh soft cheese, made from 100% fresh cow's milk using the traditional Moldovan method.</p>
-		<p class="description">400 Gm</p>
-		<p>Price: JD</p>
-        <p class="price">3.49</p>
-        <button class="btn-add-to-cart">Add to Cart</button>
+	
+	<div class="product">
+    <img src="4.jpg" alt="Product 1">
+    <h3>Homemade Kefir</h3>
+    <div class="short-description" id="desc1">
+        <p class="description">
+Kefir milk is one of the oldest and most nutrient-rich fermented beverages, originating from the Caucasus Mountains, where it was known as the “milk wine” for its miraculous benefits. It’s made by fermenting animal or plant-based milk using kefir grains, a powerful blend of probiotics and live yeasts, resulting in a creamy texture and refreshing taste that’s both tangy and pleasantly tart.
+Just one cup contains trillions of beneficial microorganisms (like Lactobacillus and Bifidobacterium) that help restore gut microbiome balance, enhance digestion, and reduce bloating and constipation. It’s also rich in vitamins B12 and K2, essential for nerve and bone health, along with easily digestible proteins.
+Recent studies confirm its role in boosting immunity by stimulating antibody production, lowering cholesterol, and even fighting chronic inflammation. It’s especially recommended for people with IBS and as a nutritional supplement after antibiotic use.
+Kefir can be enjoyed as a refreshing morning drink, blended into smoothies and juices, or used in salad dressings as a yogurt alternative. In some cultures, it’s used in baking fluffy kefir pancakes or making soft cheeses.
+In short, kefir isn’t just a drink… it’s a natural pharmacy that nourishes you from the inside out!
+        </p>
+        <span class="fade-overlay"></span>
     </div>
-    <div class="product">
-        <img src="2.jpg" alt="Product 2">
-        <h3>Pure Cow Ghee</h3>
-        <p class="description">Cow Ghee with the authentic taste and aroma of pure ghee  —  free from any additives or flavorings.</p>
-		<p class="description">1 Kg</p>
-		<p>Price: JD</p>
-        <p class="price">14.99</p>
-        <button class="btn-add-to-cart">Add to Cart</button>
-    </div>
-    <div class="product">
-        <img src="3.jpg" alt="Product 3">
-        <h3>Delicious Cow Butter</h3>
-        <p class="description">Fresh butter made from natural cream — perfect for cooking or spreading.</p>
-		<p class="description">1 Kg</p>
-		<p>Price: JD</p>
-        <p class="price">5.99</p>
-        <button class="btn-add-to-cart">Add to Cart</button>
-    </div>
+    <span class="read-more" onclick="toggleDescription('desc1', this)">Read more</span>
+    <p class="description">1 L</p>
+    <p>Price: JD</p>
+    <p class="price">4.99</p>
+    <button class="btn-add-to-cart">Add to Cart</button>
+	</div>
+	
+	<div class="product">
+    <img src="1.png" alt="Product 2">
+    <h3>Fresh Qareesh Cheese</h3>
+    <div class="short-description" id="desc2">
+        <p class="description">      
+Qareesh cheese is one of the oldest and most beneficial natural cheeses for the human body. It’s made by slowly curdling fresh milk, then gently straining the whey to preserve its distinct soft and lumpy texture. Its light, balanced tang and cloud-like creaminess make it an ideal choice for anyone seeking healthy food that’s easy on the stomach.
+It’s a true treasure trove of high-quality protein—offering up to 28 grams per cup!—keeping you full for hours and supporting muscle building, especially for athletes. It’s also packed with calcium, phosphorus, and selenium, essential for strong bones, immune defense, and glowing skin. Best of all, it's low in fat and calories, and free from additives when made at home.
+In the kitchen, it’s a canvas for creativity: add it to salads as a healthy mayo substitute, blend it with herbs for a delicious spread, or use it in fluffy pancakes and savory pies. Even desserts love it—try it with honey and fruit for a high-protein treat. Historically, it’s a staple in Middle Eastern and Slavic cuisines, cherished as a symbol of home and care.
+Simply put, cottage cheese is more than food… it’s a smart nutrition philosophy fit for all ages—bringing back simplicity and purpose to your meals. Try it at breakfast tomorrow and discover why it has stood the test of time as a timeless classic!
+        </p>
+        <span class="fade-overlay"></span>
+    </div>   
+    <span class="read-more" onclick="toggleDescription('desc2', this)">Read more</span>
+    <p class="description">400 gm</p>
+    <p>Price: JD</p>
+    <p class="price">3.49</p>
+    <button class="btn-add-to-cart">Add to Cart</button>
 </div>
 
+<div class="product">
+    <img src="2.jpg" alt="Product 3">
+    <h3>Pure Cow Ghee</h3>
+    <div class="short-description" id="desc3">
+        <p class="description">        
+Our pure cow ghee is 100% natural — free from any additives, colorings, or artificial flavorings. It's rich, flavorful, and infused with the authentic buttery taste you love.
+An ideal alternative to hydrogenated oils, it’s perfect for cooking, frying, or adding depth to your favorite dishes. Every spoonful is both wholesome and delicious, delivering the goodness your body deserves.
+We proudly craft it in Kufr Abeel, using traditional methods to preserve its purity and taste — just like it was meant to be.
+        </p>
+        <span class="fade-overlay"></span>
+    </div>
+    <span class="read-more" onclick="toggleDescription('desc3', this)">Read more</span>
+    <p class="description">1 Kg</p>
+    <p>Price: JD</p>
+    <p class="price">14.99</p>
+    <button class="btn-add-to-cart">Add to Cart</button>
+</div>
 
+<div class="product">
+    <img src="3.jpg" alt="Product 4">
+    <h3>Delicious Cow Butter</h3>
+    <div class="short-description" id="desc4">
+        <p class="description">           
+Our pure cow butter shines with its rich, golden-yellow color — a true gift from the beautiful cows of Kufr Abeel’s nature. Made from fresh, hand-milked cow’s milk, it carries the essence of simplicity, freshness, and authentic rural care.
+Every batch reflects the charm of the land and the love we pour into our work. It's not just butter — it’s a taste of tradition, straight from our farm to your table.
+        </p>
+        <span class="fade-overlay"></span>
+    </div>    
+    <span class="read-more" onclick="toggleDescription('desc4', this)">Read more</span>
+    <p class="description">1 Kg</p>
+    <p>Price: JD</p>
+    <p class="price">5.99</p>
+    <button class="btn-add-to-cart">Add to Cart</button>
+</div>
 
+<div class="product">
+    <img src="5.jpg" alt="Product 5">
+    <h3>Organic Vinegar</h3>
+    <div class="short-description" id="desc5">
+        <p class="description">           
+Crafted in the southern villages of Shoubak, Jordan, this vinegar is made from pure, local apples through natural fermentation for months in wooden barrels, giving it a deep flavor that balances tangy acidity with a hint of sweetness, and a warm, distinctive aroma.
+It contains a high concentration of "the mother" (a natural probiotic) and potassium, making it a powerful aid for digestion, immunity, and blood sugar regulation. A cotton pad soaked in it can be used topically for acne treatment or as a natural hair rinse to strengthen the scalp.
+It’s a staple in traditional recipes, such as olive pickling or as a health tonic (mixed with water and honey). Most importantly, it is a symbol of sustainability: families transform surplus apples—with no additives—into a healthy legacy passed down through generations, bearing witness to the wisdom of the land and the dedication of local hands.
+        </p>
+        <span class="fade-overlay"></span>
+    </div>    
+    <span class="read-more" onclick="toggleDescription('desc5', this)">Read more</span>
+    <p class="description">750 ml</p>
+    <p>Price: JD</p>
+    <p class="price">9.99</p>
+    <button class="btn-add-to-cart">Add to Cart</button>
+</div>
 
+<div class="product">
+    <img src="6.jpeg" alt="Product 6">
+    <h3>Adjika spicy sauce</h3>
+    <div class="short-description" id="desc6">
+        <p class="description">           
+Adjika is a traditional hot sauce, lovingly homemade from 100% natural ingredients — tomatoes, apples, sweet and hot peppers, garlic, and aromatic spices. It’s thick, fragrant, and boldly flavorful, adding a warm, vibrant touch to any meal. Free from vinegar and preservatives — just pure ingredients and heartfelt care. Perfect alongside meats, stirred into stews and grains, enjoyed with potatoes, or simply spread on a piece of fresh bread. Just one spoonful turns your meal into an unforgettable experience.
+        </p>
+        <span class="fade-overlay"></span>
+    </div>    
+    <span class="read-more" onclick="toggleDescription('desc6', this)">Read more</span>
+    <p class="description">750 ml</p>
+    <p>Price: JD</p>
+    <p class="price">0</p>
+    <button class="btn-add-to-cart">Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="7.jpg" alt="Product 7">
+    <h3>Natural Propolis</h3>
+    <div class="short-description" id="desc7">
+        <p class="description">           
+Propolis is a sticky resinous substance collected by bees from buds and flowers. Bees use it to seal cracks, sterilize the hive, and protect the colony from bacteria and fungi.
+It is renowned for its powerful medicinal properties — acting as a natural antibiotic, anti-inflammatory, antiviral, and antioxidant.
+Humans have used propolis since ancient times in traditional medicine to treat wounds, burns, and oral and throat infections, as well as to boost immunity.
+Today, it is widely used in skincare products, medicines, and dietary supplements due to its numerous health benefits.
+        </p>
+        <span class="fade-overlay"></span>
+    </div>    
+    <span class="read-more" onclick="toggleDescription('desc7', this)">Read more</span>
+    <p class="description">750 ml</p>
+    <p>Price: JD</p>
+    <p class="price">0</p>
+    <button class="btn-add-to-cart">Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="8.jpg" alt="Product 8">
+    <h3>Bee Pollen</h3>
+    <div class="short-description" id="desc8">
+        <p class="description">           
+Bee pollen is a nutrient-rich substance collected by bees from flower stamens, then mixed with nectar and enzymes. It’s considered a superfood, packed with proteins, B-complex vitamins, minerals, amino acids, and powerful antioxidants.
+It naturally boosts energy and vitality, enhancing both physical and mental performance. Known for supporting the immune system, it also helps reduce inflammation, regulate digestion, and balance hormones.
+Often consumed as a dietary supplement (in capsules or granules), bee pollen can also be mixed with honey or smoothies to maximize its health benefits.
+        </p>
+        <span class="fade-overlay"></span>
+    </div>    
+    <span class="read-more" onclick="toggleDescription('desc8', this)">Read more</span>
+    <p class="description">750 ml</p>
+    <p>Price: JD</p>
+    <p class="price">0</p>
+    <button class="btn-add-to-cart">Add to Cart</button>
+</div>
 <script>
 
 let shoppingCart = []; 
@@ -378,12 +526,47 @@ document.addEventListener('DOMContentLoaded', function() {
         // Display a message indicating that the cart is empty
         cartContainer.innerHTML = '<p>Your shopping cart is empty.</p>';
     }
+	
+	
 });
 
 
 
 
 </script>
+
+<script>
+  function toggleDescription(id, btn) {
+    const desc = document.getElementById(id);
+    desc.classList.toggle('expanded');
+    btn.textContent = desc.classList.contains('expanded') ? 'Read less' : 'Read more';
+  }
+</script>
+
+<section id="about" style="padding: 50px 20px; background-color: #f0f0f0;">
+  <h2>About US</h2>
+  <p>
+   <p><b> We Are Tabi3atna — A Jordanian-Moldovan Family Returning to Nature 🌿</b><p/p>
+We are a Jordanian-Moldovan family living in Amman, with roots in Irbid — the bride of the north — and having lived as well in southern Jordan. Nearly five years ago, we made a life-changing decision: to return to nature and embrace a healthier lifestyle.
+
+We began by eliminating harmful industrial products from our home — saying goodbye to seed oils like sunflower and corn oil, and drastically reducing our sugar consumption by 80%. In their place, we turned to pure animal ghee and extra virgin olive oil.
+
+Our journey led us to rediscover traditional and nourishing foods:
+🐄 Pure cow ghee and butter without any additives.
+🧀 Homemade Qareesh cheese (Tefourgh) made from fresh buttermilk.
+🥛 Delicious, probiotic-rich kefir crafted from raw cow’s milk.
+
+All of this and more, we found in our village — in the heart of nature, in Kufrabil.
+
+We then ventured into the northern highlands of Irbid, where we sourced 100% pure bee honey from trusted friends and beekeepers. From their hives, we also obtained propolis, bee pollen, royal jelly, and even bee venom.
+
+From southern Jordan, we brought you natural organic apple cider vinegar, unfiltered and made the traditional way.
+
+This is our life. This is our nature.
+This is Tabi3atna — nature, purity, and heritage in every jar.
+  </p>
+</section>
+
 <footer>
     <div class="contact-info">
         <p>Contact us: Tabi3atnaStore@gmail.com | Phone: +962777760023</p>
@@ -392,6 +575,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
         <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+		<a href="https://wa.me/962798949137" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
     <p>&copy; 2025 Tabi3atna Store. All rights reserved.</p>
 </footer>
