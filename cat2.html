@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Categories</title>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+		header {
+            background-color: #f5acff;
+            color: #fff;
+            padding: 50px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .category-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .category-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .category {
+            width: 45%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .category:hover {
+            transform: scale(1.05);
+        }
+        .category h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .category p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .product {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        .product img {
+            width: 220px;
+            height: 220px;
+            border-radius: 5px;
+        }
+        .product-info {
+            margin-left: 20px;
+            text-align: left;
+        }
+        .product h4 {
+            margin: 5px 0;
+            color: #333;
+        }
+        .product p {
+            margin: 5px 0;
+            color: #666;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .product button {
+            background-color: #f5acff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .product button:hover {
+            background-color: #d230ba;
+        }
+        .product:hover p.price {
+            color: #d230ba;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Perfume For Women</h1>
+</header>
+<img src="login.jpg" alt="Background Image" style="position: fixed; z-index: -1; width: 100%; height: 100%; top: 0; left: 0; opacity: 0.3;">
+<div class="category-container">
+    <div class="category">
+        <h3>For Women</h3>
+        <div class="product">
+            <img src="women1c.jpg" alt="Product 1">
+            <div class="product-info">
+                <h4>Victoria's Secret Bombshell Seduction Eau de Parfum</h4>
+                <p class="description"> Mysterious and irresistible, Bombshell Seduction is a sheer veil of white peonies and skin-like warmth, Fragrance type: Floral Warm.</p>
+                <p class="price">$54.99</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="women2c.jpg" alt="Product 2">
+            <div class="product-info">
+                <h4>Michael Kors Gorgeous</h4>
+                <p class="description">Michael Kors Gorgeous! Eau de Parfum is a bold floral woody fragrance, Top Note: Floral Bouquet,Middle Note: Tobacco Accord.</p>
+                <p class="price">$43.99</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+		<div class="product">
+            <img src="women3c.jpg" alt="Product 2">
+            <div class="product-info">
+                <h4>Mugler Alien - Eau de Parfum</h4>
+                <p class="description">Sensual. Feminine. Intriguing. Experience creative energy with Alien Women's Eau de Parfum floral fragrance. Radiant jasmine sambac accord recalls a solar revelation, while cashmere wood and white amber add enticing depth.</p>
+                <p class="price">$61.99</p>
+                <button>Add to Cart</button>
+            </div>
+    </div>
+	</div>
+    <div class="category">
+        <h3>For Women</h3>
+        <div class="product">
+            <img src="women4c.jpg" alt="Product 3">
+            <div class="product-info">
+                <h4>Victoria's Secret Very Sexy</h4>
+                <p class="description">Scent notes of vanilla orchid, sun-drenched clementine, and wild blackberry.Layer on top of matching Very Sexy Fine Fragrance Lotion and spray on Very Sexy Fine Fragrance Mist throughout the day for a long-lasting fragrance experience.</p>
+                <p class="price">$44.99</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="women5c.jpg" alt="Product 4">
+            <div class="product-info">
+                <h4>Carolina Herrera Very Good Girl EDP</h4>
+                <p class="description">ALCOHOL DENAT PARFUM (FRAGRANCE), AQUA (WATER), LINALOOL, LIMONENE, COUMARIN,BUTYL METHOXYDIBENZOYLMETHANE, ALPHA ISOMETHYL IONONE, CITRAL, ISOEUGENOL, GERANIOL.</p>
+                <p class="price">$126.99</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+		<div class="product">
+            <img src="women6c.jpg" alt="Product 4">
+            <div class="product-info">
+                <h4>Vera Wang Eau de Parfum for Women</h4>
+                <p class="description">Subtle notes of iris, lilies, sandalwood make it the ideal companion on a dinner date or an intimate evening out. Its cool, light aromas will complement any look and are light enough for delicate fabrics. </p>
+                <p class="price">$39.99</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </div>
+   
+</div>
+
+</body>
+</html>

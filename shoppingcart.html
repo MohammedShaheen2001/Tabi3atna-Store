@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        /* CSS styles for shopping cart */
+        .cart-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #fff;
+            width: 300px;
+            height: 100%;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        .cart-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .cart-item-details {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .cart-item-name {
+            font-weight: bold;
+        }
+        .cart-item-price {
+            color: #666;
+        }
+        .cart-total {
+            margin-top: 20px;
+            text-align: right;
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Button animation */
+        @keyframes buttonScale {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .checkout-button {
+            background-color: #f5acff;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: buttonScale 1.5s infinite;
+        }
+        .checkout-button:hover {
+            background-color: #d230ba;
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<img src="backamber.jpg" alt="Background Image" style="position: fixed; z-index: -1; width: 100%; height: 100%; top: 0; left: 0; opacity: 0.9;">
+<body>
+
+<div class="cart-container">
+    <h2>Shopping Cart</h2>
+    <div class="cart-items"></div>
+    <div class="cart-total">Total: $<span class="total-amount">0.00</span></div>
+    <button class="checkout-button">Checkout</button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    const cartItemsContainer = document.querySelector('.cart-items');
+    const totalAmountElement = document.querySelector('.total-amount');
+    const checkoutButton = document.querySelector('.checkout-button');
+
+    function updateCartUI() {
+        cartItemsContainer.innerHTML = '';
+        let totalPrice = 0;
+
+        shoppingCart.forEach((product, index) => {
+            const productElement = document.createElement('div');
+            productElement.classList.add('cart-item');
+            productElement.innerHTML = `
+                <h4>${product.name}</h4>
+                <p class="cart-item-price">$${product.price}</p>
+                <button class="btn-remove-item" data-index="${index}">Remove</button>
+            `;
+            cartItemsContainer.appendChild(productElement);
+            totalPrice += parseFloat(product.price);
+        });
+
+        totalAmountElement.textContent = totalPrice.toFixed(2);
+        attachRemoveItemListeners();
+    }
+
+    function removeItem(index) {
+        shoppingCart.splice(index, 1);
+        localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+        updateCartUI();
+    }
+
+    function attachRemoveItemListeners() {
+        document.querySelectorAll('.btn-remove-item').forEach(button => {
+            button.addEventListener('click', function() {
+                const index = parseInt(this.dataset.index);
+                removeItem(index);
+            });
+        });
+    }
+
+    updateCartUI();
+
+    let totalAmount = shoppingCart.reduce((total, item) => total + parseFloat(item.price || 0), 0);
+    totalAmountElement.textContent = totalAmount.toFixed(2);
+
+    checkoutButton.addEventListener('click', function() {
+        window.location.href = 'paymentmethod.html';
+    });
+});
+</script>
+
+</body>
+</html>

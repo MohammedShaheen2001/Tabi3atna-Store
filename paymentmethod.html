@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Method</title>
+    <style>
+  
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('backmethod.gif'); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: center; 
+        }
+        .payment-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.8); 
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .payment-methods {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .payment-card {
+            width: 150px;
+            height: 100px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .payment-card img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .payment-card:hover {
+            transform: scale(1.05);
+        }
+        .payment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        .payment-card:hover::before {
+            opacity: 1;
+        }
+        .payment-card.active::before {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="payment-container">
+    <h2>Select Payment Method</h2>
+    <div class="payment-methods">
+        <div class="payment-card" onclick="selectPaymentMethod('visa')">
+            <img src="visa.png" alt="Visa">
+        </div>
+        <div class="payment-card" onclick="selectPaymentMethod('mastercard')">
+            <img src="mastercard.png" alt="Mastercard">
+        </div>
+        <div class="payment-card" onclick="selectPaymentMethod('paypal')">
+            <img src="paypal.jpg" alt="PayPal">
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    function selectPaymentMethod(method) {
+        
+        let redirectUrl;
+        switch (method) {
+            case 'visa':
+                redirectUrl = 'paymentdetails.html';
+                break;
+            case 'mastercard':
+                redirectUrl = 'paymentdetails.html';
+                break;
+            case 'paypal':
+                redirectUrl = 'paymentdetails.html';
+                break;
+            default:
+                redirectUrl = 'default_payment.html'; 
+        }
+
+       
+        window.location.href = redirectUrl;
+    }
+</script>
+
+</body>
+</html>

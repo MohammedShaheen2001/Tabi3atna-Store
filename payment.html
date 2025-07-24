@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Categories</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+        header {
+            background-color: #d6d09c;
+            color: #fff;
+            padding: 50px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .category-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .category {
+            width: 45%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .category:hover {
+            transform: scale(1.05);
+        }
+        .category h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .category p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .product {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        .product img {
+            width: 220px;
+            height: 220px;
+            border-radius: 5px;
+        }
+        .product-info {
+            margin-left: 20px;
+            text-align: left;
+        }
+        .product h4 {
+            margin: 5px 0;
+            color: #333;
+        }
+        .product p {
+            margin: 5px 0;
+            color: #666;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .product button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .product button:hover {
+            background-color: #45a049;
+        }
+        .product:hover p.price {
+            color: #4CAF50;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Gift Box For Men</h1>
+</header>
+<img src="back.jpg" alt="Background Image" style="position: fixed; z-index: -1; width: 100%; height: 100%; top: 0; left: 0; opacity: 0.3;">
+<div class="category-container">
+    <div class="category">
+        <h3>For Men</h3>
+        <div class="product">
+            <img src="mencat1.jpeg" alt="Product 1">
+            <div class="product-info">
+                <h4>Elite Gift Box for Men</h4>
+                <p class="description">Elite Gift Box for Men includes: Leather Purse, Leather Belt, Non-Branded Watch, Non-Branded Goggles, Box Design or Color may vary City to City, Same Day Delivery in Lahore.</p>
+                <p class="price">$27.99</p>
+                <button class="btn-add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+        <!-- Add more products as needed -->
+    </div>
+    <!-- Add more categories with products as needed -->
+</div>
+
+<div class="cart-container">
+    <h2>Shopping Cart</h2>
+    <div class="cart-items"></div>
+    <div class="cart-total">Total: $<span class="total-amount">0.00</span></div>
+    <button class="checkout-button">Checkout</button>
+</div>
+
+<script>
+    // JavaScript to handle adding to cart and navigating to checkout
+    let shoppingCart = []; // Initialize an empty array to store cart items
+
+    // Function to update the UI to reflect the cart state
+    function updateCartUI() {
+        const cartItemsContainer = document.querySelector('.cart-items');
+        const totalAmountElement = document.querySelector('.total-amount');
+        
+        // Clear the previous items in the cart
+        cartItemsContainer.innerHTML = '';
+
+        // Initialize total price variable
+        let totalPrice = 0;
+
+        // Loop through each item in the shopping cart
+        shoppingCart.forEach(product => {
+            const productElement = document.createElement('div');
+            productElement.classList.add('cart-item');
+            productElement.innerHTML = `
+                <h4>${product.name}</h4>
+                <p class="cart-item-price">$${product.price}</p>
+            `;
+            cartItemsContainer.appendChild(productElement);
+
+            // Add product price to total price
+            totalPrice += parseFloat(product.price);
+        });
+
+        // Display total price
+        totalAmountElement.textContent = totalPrice.toFixed(2);
+    }
+
+    // Function to handle adding an item to the cart
+    function addToCart(productName, productPrice) {
+        const productDetails = {
+            name: productName,
+            price: productPrice
+        };
+        shoppingCart.push(productDetails); // Add product details to the cart array
+        updateCartUI(); // Update the UI to reflect the updated cart
+        localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart)); // Store the cart in local storage
+    }
+
+    // Add event listeners to all add to cart buttons
+    document.querySelectorAll('.btn-add-to-cart').forEach(button => {
+        button.addEventListener('click', function() {
+            const product = this.closest('.category').querySelector('.product-info');
+            const productName = product.querySelector('h4').innerText;
+            const productPrice = product.querySelector('.price').innerText.substr(1); // Remove '$' from price
+            addToCart(productName, productPrice);
+        });
+    });
+
+    // Handle checkout button click
+    const checkoutButton = document.querySelector('.checkout-button');
+    checkoutButton.addEventListener('click', function() {
+        window.location.href = 'checkout.html'; // Navigate to checkout page
+    });
+
+    // Load cart from local storage on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const storedCart = JSON.parse(localStorage.getItem('shoppingCart'));
+        if (storedCart) {
+            shoppingCart = storedCart;
+            updateCartUI();
+        }
+    });
+</script>
+</body>
+</html>

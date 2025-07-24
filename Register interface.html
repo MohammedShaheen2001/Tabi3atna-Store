@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+        }
+
+        .register-container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="radio"] {
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #f5acff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #d230ba;
+        }
+
+        input::placeholder {
+            color: #ccc;
+        }
+    </style>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div class="register-container">
+	<img src="amber.jpg" alt="Login Image" >
+        <h2>Register for Amber Store</h2>
+		<img src="rege.jpg" alt="Background Image" style="position: fixed; z-index: -1; width: 100%; height: 100%; top: 0; left: 0; opacity: 0.8;">
+        <form action="#" method="post">
+            <input type="text" name="fullname" placeholder="Full Name">
+            <input type="email" name="email" placeholder="Email Address">
+            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="confirmPassword" placeholder="Confirm Password">
+           
+		   <div>
+                <label for="male">Male</label>
+                <input type="radio" id="male" name="gender" value="male">
+                
+                <label for="female">Female</label>
+                <input type="radio" id="female" name="gender" value="female">
+                
+                <label for="other">Other</label>
+                <input type="radio" id="other" name="gender" value="other">
+            </div>
+			<div class="g-recaptcha" data-sitekey="6LcLUMkpAAAAAO2pUuquu0EsGcHCruo-SL-djJBg"></div>
+            <button type="submit">Register</button>
+			<input type="hidden" name="imgverify"
+      value="6LcLUMkpAAAAAKhCJ36ah7zhWiOaRTmX2MRtku-E"/>
+        </form>
+		
+    </div>
+</body>
+</html>

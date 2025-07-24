@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Categories</title>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+		header {
+            background-color: #f5acff;
+            color: #fff;
+            padding: 50px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .category-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .category-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .category {
+            width: 45%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .category:hover {
+            transform: scale(1.05);
+        }
+        .category h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .category p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .product {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        .product img {
+            width: 220px;
+            height: 220px;
+            border-radius: 5px;
+        }
+        .product-info {
+            margin-left: 20px;
+            text-align: left;
+        }
+        .product h4 {
+            margin: 5px 0;
+            color: #333;
+        }
+        .product p {
+            margin: 5px 0;
+            color: #666;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .product button {
+            background-color: #f5acff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .product button:hover {
+            background-color: #d230ba;
+        }
+        .product:hover p.price {
+            color: #d230ba;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Perfume For Men</h1>
+</header>
+<img src="login.jpg" alt="Background Image" style="position: fixed; z-index: -1; width: 100%; height: 100%; top: 0; left: 0; opacity: 0.3;">
+<div class="category-container">
+    <div class="category">
+        <h3>For Men</h3>
+        <div class="product">
+            <img src="men1c.jpg" alt="Product 1">
+            <div class="product-info">
+                <h4>Carolina Herrera Bad Boy</h4>
+                <p class="description">Carolina Herrera’s Bad Boy Eau de Toilette embodies rebellious sophistication and modern masculinity in a bold, lightning bolt-shaped bottle. This fragrance opens with refreshing notes of bergamot and black pepper.</p>
+                <p class="price">$127.99</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="men2c.jpg" alt="Product 2">
+            <div class="product-info">
+                <h4>Chanel Eau De Perfume</h4>
+                <p class="description">In a fresh, clean and deeply sensual Eau de Parfum version, this woody, aromatic fragrance reveals the spirit of a man who chooses his own destiny with complete independence and determination - a man who defies convention.</p>
+                <p class="price">$134.99</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+		<div class="product">
+            <img src="men3c.jpg" alt="Product 2">
+            <div class="product-info">
+                <h4>Perfume 212 Vip Black Carolina Herrera 100 mL</h4>
+                <p class="description">Experience the bold sophistication of Carolina Herrera's 212 Vip Black EDP Spray for Men. Released by the renowned design house in 2017, this fragrance captivates the senses with its unique blend of exquisite notes.</p>
+                <p class="price">$94.99</p>
+                <button>Add to Cart</button>
+            </div>
+    </div>
+	</div>
+    <div class="category">
+        <h3>For Men</h3>
+        <div class="product">
+            <img src="men4c.jpg" alt="Product 3">
+            <div class="product-info">
+                <h4>Lattafa Asad Zanzibar for Men</h4>
+                <p class="description">Lattafa Asad Zanzibar is a new fragrance for men launched in 2024, 3.4 Fl Oz / 100ml, Top notes: Black Pepper and Sea Lavender, Middle notes: Salty Coconut Water and Iris, Base notes: Vanilla and Incense.</p>
+                <p class="price">$63.99</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="men5c.jpg" alt="Product 4">
+            <div class="product-info">
+                <h4>Terre D'Hermes by Hermes for Men</h4>
+                <p class="description">For Men - 1.6 Ounce EDT Spray, This product is made of high quality material, Packaging for this product may vary from that shown in the image above</p>
+                <p class="price">$114.99</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+		<div class="product">
+            <img src="men6c.jpg" alt="Product 4">
+            <div class="product-info">
+                <h4>Paco Rabanne for Men Eau De Toilette</h4>
+                <p class="description">Base Note: Guaiac wood, oak moss, patchouli, ambergris, The package weight of the product is 3.4 ounces</p>
+                <p class="price">$47.99</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </div>
+  
+</div>
+
+</body>
+</html>
