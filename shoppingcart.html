@@ -1,143 +1,584 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
-    <style>
-        /* CSS styles for shopping cart */
-        .cart-container {
-            position: fixed;
-            top: 0;
-            right: 0;
-            background-color: #fff;
-            width: 300px;
-            height: 100%;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            overflow-y: auto;
-        }
-        .cart-item {
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
-        }
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-        .cart-item img {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-        .cart-item-details {
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .cart-item-name {
-            font-weight: bold;
-        }
-        .cart-item-price {
-            color: #666;
-        }
-        .cart-total {
-            margin-top: 20px;
-            text-align: right;
-            font-weight: bold;
-            font-size: 18px;
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        /* Button animation */
-        @keyframes buttonScale {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        .checkout-button {
-            background-color: #f5acff;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            animation: buttonScale 1.5s infinite;
-        }
-        .checkout-button:hover {
-            background-color: #d230ba;
-            animation-play-state: paused;
-        }
-    </style>
+  <title>Shopping Cart</title>
+
+  <style>
+    .cart-container {
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #fff;
+      width: 300px;
+      height: 100%;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      overflow-y: auto;
+    }
+    .cart-item {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+    }
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+    .cart-total {
+      margin-top: 20px;
+      text-align: right;
+      font-weight: bold;
+      font-size: 18px;
+      color: #333;
+    }
+    .checkout-button {
+      background-color: #dbcd48;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      animation: buttonScale 1.5s infinite;
+      width: 100%;
+    }
+    .checkout-button:hover {
+      background-color: #727e40;
+      animation-play-state: paused;
+    }
+    @keyframes buttonScale {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    input[type="text"], input[type="tel"] {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      box-sizing: border-box;
+    }
+	
+	.btn-remove-item {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-remove-item:hover {
+  background-color: #d9363e;
+  transform: scale(1.05);
+}
+
+
+.checkout-form {
+  background-color: #fdfdfd;
+  padding: 24px;
+  margin: 20px auto;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  direction: rtl;
+}
+
+.checkout-form h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #8bc34a;
+  outline: none;
+}
+
+.btn-submit-order {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit-order:hover {
+  background-color: #388e3c;
+}
+
+/* تصميم أنيق لنموذج العميل */
+.customer-form {
+  background: #f7f7f7;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.customer-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.customer-form .form-group {
+  margin-bottom: 15px;
+}
+
+.customer-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.customer-form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.customer-form input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* زر الحذف بتصميم مميز */
+.btn-remove-item {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-remove-item:hover {
+  background-color: #c0392b;
+}
+
+
+
+
+.cart-container h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.btn-clear-cart {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-clear-cart:hover {
+  background-color: #c0392b;
+}
+
+
+@media (max-width: 600px) {
+  .cart-container {
+    width: 90%;
+    padding: 15px;
+  }
+  .customer-form {
+    padding: 15px;
+  }
+}
+input:focus, textarea:focus {
+  box-shadow: 0 0 5px #4caf50;
+}
+
+
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  .checkout-button {
+    font-size: 18px;
+    padding: 18px;
+  }
+}
+
+
+.empty-cart-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh; /* توسيط رأسي داخل المساحة تحت العنوان */
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.btn-back-to-shop {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-back-to-shop:hover {
+  background-color: #388e3c;
+}
+
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+
+
+  </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ar',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
-<img src="backamber.jpg" alt="Background Image" style="position: fixed; z-index: -1; width: 100%; height: 100%; top: 0; left: 0; opacity: 0.9;">
+
 <body>
+<img src="shopping.jpg" alt="Background Image" style="position: fixed; z-index: -1; width: 100%; height: 100%; top: 0; left: 0; opacity: 0.9;">
 
 <div class="cart-container">
-    <h2>Shopping Cart</h2>
-    <div class="cart-items"></div>
-    <div class="cart-total">Total: $<span class="total-amount">0.00</span></div>
-    <button class="checkout-button">Checkout</button>
+  <div id="google_translate_element" style="margin-bottom: 10px;"></div>
+  <h2>🛒 Shopping Cart</h2>
+  <div class="cart-items"></div>
+  <div class="cart-total">Total: JD <span class="total-amount">0.00</span></div>
+
+<button id="clear-cart-btn" class="btn-clear-cart">🗑️ Clear Cart</button>
+
+  <!-- نموذج بيانات الزبون -->
+  <!-- نموذج معلومات العميل بشكل أنيق -->
+  <hr style="margin: 20px 0; border: none; height: 1px; background-color: #eee;">
+
+<div class="customer-form">
+  <h2>📝 Customer Info.</h2>
+  <div class="form-group">
+    <label for="customer-name">Full Name</label>
+    <input type="text" id="customer-name" placeholder="Enter your full name" required>
+  </div>
+  <div class="form-group">
+    <label for="customer-phone">Number Phone</label>
+    <input type="tel" id="customer-phone" placeholder="Ex. 0791234567" required>
+  </div>
+  <div class="form-group">
+    <label for="customer-city">City</label>
+    <input type="text" id="customer-city" placeholder="Ex. Amman, Irbid ..." required>
+  </div>
 </div>
 
+
+  <button class="checkout-button">
+  <i class="fab fa-whatsapp"></i> Send Order via WhatsApp
+</button>
+</div>
+
+
+
+
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+
+function generateOrderID() {
+  const now = new Date();
+  return 'ORD-' + now.getTime().toString(36) + '-' + Math.floor(Math.random() * 999).toString(36).padStart(3, '0');
+}
+
+function isValidJordanianPhone(phone) {
+  const phoneRegex = /^(?:\+962|962|0)?7[789]\d{7}$/;
+  return phoneRegex.test(phone);
+}
+
+// أمثلة:
+console.log(isValidJordanianPhone("0799999999"));  // true
+console.log(isValidJordanianPhone("962799999999")); // true
+console.log(isValidJordanianPhone("+962789999999")); // true
+console.log(isValidJordanianPhone("0781234567")); // true
+console.log(isValidJordanianPhone("077123")); // false
+
+
+
+
+  document.addEventListener('DOMContentLoaded', function () {
     let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     const cartItemsContainer = document.querySelector('.cart-items');
     const totalAmountElement = document.querySelector('.total-amount');
     const checkoutButton = document.querySelector('.checkout-button');
 
     function updateCartUI() {
-        cartItemsContainer.innerHTML = '';
-        let totalPrice = 0;
+  cartItemsContainer.innerHTML = '';
+  let totalPrice = 0;
 
-        shoppingCart.forEach((product, index) => {
-            const productElement = document.createElement('div');
-            productElement.classList.add('cart-item');
-            productElement.innerHTML = `
-                <h4>${product.name}</h4>
-                <p class="cart-item-price">$${product.price}</p>
-                <button class="btn-remove-item" data-index="${index}">Remove</button>
-            `;
-            cartItemsContainer.appendChild(productElement);
-            totalPrice += parseFloat(product.price);
+  // إذا كانت السلة فارغة، عرض رسالة
+  if (shoppingCart.length === 0) {
+    cartItemsContainer.innerHTML = `
+      <div class="empty-cart-message">
+        🛒 No products in the cart.
+        <br><br>
+        <button id="btn-back-to-shop" class="btn-back-to-shop">
+          🔙 Back to Shop
+        </button>
+      </div>
+    `;
+    totalAmountElement.textContent = "0.00";
+	setTimeout(() => {
+      const backBtn = document.getElementById('btn-back-to-shop');
+      if (backBtn) {
+        backBtn.addEventListener('click', function () {
+          window.location.href = "index.html";
         });
+      }
+    }, 0);
+    return;
+  }
 
-        totalAmountElement.textContent = totalPrice.toFixed(2);
-        attachRemoveItemListeners();
+
+
+  // عرض المنتجات الموجودة في السلة
+  shoppingCart.forEach((product, index) => {
+    const productElement = document.createElement('div');
+    productElement.classList.add('cart-item');
+    productElement.innerHTML = `
+	 <img src="${product.image}" alt="${product.name}" class="cart-item-image" style="width: 100px; height: auto;" />
+      <div class="cart-item-details">
+      <h4 class="cart-item-title">${product.name}</h4>
+      <p class="cart-quantity">Quantity: ${product.quantity}</p>
+      <p class="cart-price">JD ${(product.price * product.quantity).toFixed(2)}</p>
+      <button class="btn-remove-item" data-index="${index}">
+        <i class="fas fa-trash-alt"></i> Remove
+      </button>
+    `;
+    cartItemsContainer.appendChild(productElement);
+
+    totalPrice += product.price * product.quantity;
+  });
+
+  // تحديث المجموع الكلي
+  totalAmountElement.textContent = totalPrice.toFixed(2);
+
+  // تفعيل مستمعي الحذف
+  attachRemoveItemListeners();
+}
+
+document.getElementById("clear-cart-btn").addEventListener("click", function () {
+  Swal.fire({
+    title: "Are you sure?",
+    text: "All items in the cart will be cleared!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    cancelButtonColor: "#3085d6",
+    confirmButtonText: "Yes, clear it",
+    cancelButtonText: "Cancel"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      shoppingCart = []; // تفريغ السلة
+	  localStorage.removeItem('shoppingCart');
+      updateCartUI();    // تحديث الواجهة
+      Swal.fire({
+        title: "Cleared!",
+        text: "All items have been removed from the cart.",
+        icon: "success",
+        confirmButtonText: "OK"
+      });
     }
+  });
+});
+
+
+
+
+
+
 
     function removeItem(index) {
-        shoppingCart.splice(index, 1);
-        localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
-        updateCartUI();
+      shoppingCart.splice(index, 1);
+      localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+      updateCartUI();
     }
 
     function attachRemoveItemListeners() {
-        document.querySelectorAll('.btn-remove-item').forEach(button => {
-            button.addEventListener('click', function() {
-                const index = parseInt(this.dataset.index);
-                removeItem(index);
-            });
+      document.querySelectorAll('.btn-remove-item').forEach(button => {
+        button.addEventListener('click', function () {
+          const index = parseInt(this.dataset.index);
+          removeItem(index);
         });
+      });
     }
 
     updateCartUI();
 
-    let totalAmount = shoppingCart.reduce((total, item) => total + parseFloat(item.price || 0), 0);
-    totalAmountElement.textContent = totalAmount.toFixed(2);
-
-    checkoutButton.addEventListener('click', function() {
-        window.location.href = 'paymentmethod.html';
-    });
+    checkoutButton.addEventListener('click', function () {
+  if (shoppingCart.length === 0) {
+    Swal.fire({
+  icon: 'info',
+  title: 'Oops!',
+  text: 'Your cart is empty.',
 });
+
+    return;
+  }
+
+  const name = document.getElementById("customer-name").value.trim();
+  const phone = document.getElementById("customer-phone").value.trim();
+  const city = document.getElementById("customer-city").value.trim();
+
+  if (!name || !phone || !city) {
+  Swal.fire({
+  icon: 'info',
+  title: 'Oops!',
+  text: 'Please enter your name, phone number, and city.',
+});
+
+    return;
+  }
+  
+  if (!isValidJordanianPhone(phone)) {
+  Swal.fire({
+    icon: 'error',
+    title: 'Invalid Phone Number',
+    text: 'Please enter a valid Jordanian phone number.',
+    confirmButtonColor: '#d33'
+  });
+  return;
+}
+  
+  
+const orderID = generateOrderID();
+
+  let message = `🛒 *طلب جديد من الموقع:*\n\n👤 ${orderID}\n\n👤*الاسم:* ${name}\n📞 *الهاتف:* ${phone}\n🏙️ *المدينة:* ${city}\n\n✅ *المنتجات المطلوبة:*\n`;
+  let total = 0;
+  
+
+  shoppingCart.forEach((item, index) => {
+    const itemTotal = item.price * item.quantity;
+    message += `\n${index + 1}. ${item.name}\n   - السعر: JD ${item.price.toFixed(2)}\n   - الكمية: ${item.quantity}\n   - المجموع: JD ${itemTotal.toFixed(2)}\n`;
+    total += itemTotal;
+  });
+
+  message += `\n💰 *المجموع الكلي:* JD ${total.toFixed(2)}\n\nشكراً لكم!`;
+
+  const encodedMessage = encodeURIComponent(message);
+  const phoneNumber = "962798949137"; // ← رقم البائع
+  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+  Swal.fire({
+  title: 'Are you sure?',
+  text: "The order will be sent via WhatsApp. Do you want to continue?",
+  icon: 'question',
+  showCancelButton: true,
+  confirmButtonColor: '#4caf50',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, send the order',
+  cancelButtonText: 'Cancel'
+}).then((result) => {
+  if (result.isConfirmed) {
+    setTimeout(() => {
+      window.open(whatsappURL, "_blank");
+    }, 1000);
+	
+	localStorage.removeItem('shoppingCart');
+shoppingCart = [];
+updateCartUI();
+
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Order Sent!',
+      text: 'WhatsApp has been opened. Thank you for shopping with us!',
+      confirmButtonColor: '#4caf50'
+    });
+	
+  }
+});
+
+
+
+});
+
+  });
+  
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 
 </body>
 </html>
