@@ -258,7 +258,7 @@
     max-height: 1000px;
 }
 .read-more {
-    color: #007bff;
+    color: #dbcd48;
     cursor: pointer;
     display: inline-block;
     margin-top: 5px;
@@ -272,6 +272,119 @@
     background: linear-gradient(to top, white, transparent);
     display: block;
 }
+.actions-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.btn-qty {
+    background-color: #dbcd48;
+    border: none;
+    padding: 6px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-qty:hover {
+    background-color: #727e40;
+}
+
+.product-quantity {
+    width: 50px;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+    padding: 6px;
+}
+
+.product-quantity:focus {
+    outline: none;
+}
+
+
+.quantity-container {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.product-quantity {
+    width: 60px;
+    padding: 4px;
+    font-size: 14px;
+}
+
+
+
+.actions-row {
+    display: flex;
+    justify-content: center; /* لجعل عناصر الصف في الوسط */
+    margin-top: 10px;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+    gap: 0; /* ازل الهامش بين الأزرار وحقل الإدخال */
+}
+
+.btn-qty {
+    background-color: #dbcd48;
+    border: none;
+    padding: 6px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-qty:hover {
+    background-color: #727e40;
+}
+
+.product-quantity {
+    width: 50px;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+    padding: 6px;
+}
+
+.product-quantity:focus {
+    outline: none;
+}
+
+.btn-add-to-cart {
+    display: block;
+    margin: 15px auto 0 auto; /* يضع الزر في وسط العرض مع مسافة من فوق */
+    background-color: #dbcd48;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #727e40;
+}
+
 
 
 		
@@ -306,7 +419,7 @@
     </div>
 	
     <div class="gift-box">
-        <img class="gift-image" src="tabitna.jpeg" alt="Gift">
+        <img class="gift-image" src="shoping.jpg" alt="Gift">
     </div>
 <div class="login-register">
         <a href="#about">About US</a>
@@ -350,6 +463,13 @@ In short, kefir isn’t just a drink… it’s a natural pharmacy that nourishes
     <p class="description">1 L</p>
     <p>Price: JD</p>
     <p class="price">4.99</p>
+	<div class="actions-row">
+        <div class="quantity-control">
+            <button class="btn-qty minus">-</button>
+            <input type="number" value="1" min="1" class="product-quantity">
+            <button class="btn-qty plus">+</button>
+        </div>
+    </div>
     <button class="btn-add-to-cart">Add to Cart</button>
 	</div>
 	
@@ -369,6 +489,13 @@ Simply put, cottage cheese is more than food… it’s a smart nutrition philoso
     <p class="description">400 gm</p>
     <p>Price: JD</p>
     <p class="price">3.49</p>
+	<div class="actions-row">
+        <div class="quantity-control">
+            <button class="btn-qty minus">-</button>
+            <input type="number" value="1" min="1" class="product-quantity">
+            <button class="btn-qty plus">+</button>
+        </div>
+    </div>
     <button class="btn-add-to-cart">Add to Cart</button>
 </div>
 
@@ -387,6 +514,13 @@ We proudly craft it in Kufr Abeel, using traditional methods to preserve its pur
     <p class="description">1 Kg</p>
     <p>Price: JD</p>
     <p class="price">14.99</p>
+	<div class="actions-row">
+        <div class="quantity-control">
+            <button class="btn-qty minus">-</button>
+            <input type="number" value="1" min="1" class="product-quantity">
+            <button class="btn-qty plus">+</button>
+        </div>
+    </div>
     <button class="btn-add-to-cart">Add to Cart</button>
 </div>
 
@@ -404,6 +538,13 @@ Every batch reflects the charm of the land and the love we pour into our work. I
     <p class="description">1 Kg</p>
     <p>Price: JD</p>
     <p class="price">5.99</p>
+	<div class="actions-row">
+        <div class="quantity-control">
+            <button class="btn-qty minus">-</button>
+            <input type="number" value="1" min="1" class="product-quantity">
+            <button class="btn-qty plus">+</button>
+        </div>
+    </div>
     <button class="btn-add-to-cart">Add to Cart</button>
 </div>
 
@@ -422,6 +563,13 @@ It’s a staple in traditional recipes, such as olive pickling or as a health to
     <p class="description">750 ml</p>
     <p>Price: JD</p>
     <p class="price">9.99</p>
+	<div class="actions-row">
+        <div class="quantity-control">
+            <button class="btn-qty minus">-</button>
+            <input type="number" value="1" min="1" class="product-quantity">
+            <button class="btn-qty plus">+</button>
+        </div>
+    </div>
     <button class="btn-add-to-cart">Add to Cart</button>
 </div>
 
@@ -438,6 +586,13 @@ Adjika is a traditional hot sauce, lovingly homemade from 100% natural ingredien
     <p class="description">750 ml</p>
     <p>Price: JD</p>
     <p class="price">0</p>
+	<div class="actions-row">
+        <div class="quantity-control">
+            <button class="btn-qty minus">-</button>
+            <input type="number" value="1" min="1" class="product-quantity">
+            <button class="btn-qty plus">+</button>
+        </div>
+    </div>
     <button class="btn-add-to-cart">Add to Cart</button>
 </div>
 
@@ -457,6 +612,13 @@ Today, it is widely used in skincare products, medicines, and dietary supplement
     <p class="description">750 ml</p>
     <p>Price: JD</p>
     <p class="price">0</p>
+	<div class="actions-row">
+        <div class="quantity-control">
+            <button class="btn-qty minus">-</button>
+            <input type="number" value="1" min="1" class="product-quantity">
+            <button class="btn-qty plus">+</button>
+        </div>
+    </div>
     <button class="btn-add-to-cart">Add to Cart</button>
 </div>
 
@@ -475,8 +637,67 @@ Often consumed as a dietary supplement (in capsules or granules), bee pollen can
     <p class="description">750 ml</p>
     <p>Price: JD</p>
     <p class="price">0</p>
+	<div class="actions-row">
+        <div class="quantity-control">
+            <button class="btn-qty minus">-</button>
+            <input type="number" value="1" min="1" class="product-quantity">
+            <button class="btn-qty plus">+</button>
+        </div>
+    </div>
     <button class="btn-add-to-cart">Add to Cart</button>
 </div>
+
+<div class="product">
+    <img src="9.jpg" alt="Product 9">
+    <h3>Zabkanka Cake</h3>
+    <div class="short-description" id="desc9">
+        <p class="description">           
+This delicious cake is made using a traditional Moldovan technique with Qareesh cheese, eggs, and semolina.
+We sweeten it naturally with honey, to your preference.
+It’s rich in protein, incredibly tasty, and a wholesome treat for any time of day!
+        </p>
+        <span class="fade-overlay"></span>
+    </div>    
+    <span class="read-more" onclick="toggleDescription('desc9', this)">Read more</span>
+    <p class="description">750 ml</p>
+    <p>Price: JD</p>
+    <p class="price">0</p>
+	
+    <div class="actions-row">
+        <div class="quantity-control">
+            <button class="btn-qty minus">-</button>
+            <input type="number" value="1" min="1" class="product-quantity">
+            <button class="btn-qty plus">+</button>
+        </div>
+    </div>
+	
+	<button class="btn-add-to-cart">Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="10.jpg" alt="Product 10">
+    <h3>Organic Turmeric</h3>
+    <div class="short-description" id="desc10">
+        <p class="description">           
+Our turmeric is organically grown in the fertile plains of Kufr Abeel, free from any chemicals or additives. Known for its vibrant color and earthy flavor, turmeric is much more than a spice — it’s a powerful natural remedy. Thanks to its active compound curcumin, turmeric offers a wide range of health benefits. It acts as a strong anti-inflammatory agent that supports joint health and helps reduce chronic inflammation. It’s also a potent antioxidant that protects your cells from damage and slows signs of aging. Turmeric is believed to enhance brain function and memory, improve heart health by regulating cholesterol levels, and help stabilize blood sugar. It also supports healthy digestion and strengthens the immune system. For optimal absorption, it’s best consumed with a pinch of black pepper. Please consult your doctor before use if you are taking blood-thinning medication.
+        </p>
+        <span class="fade-overlay"></span>
+    </div>    
+    <span class="read-more" onclick="toggleDescription('desc10', this)">Read more</span>
+    <p class="description">750 ml</p>
+    <p>Price: JD</p>
+    <p class="price">0</p>
+	<div class="actions-row">
+        <div class="quantity-control">
+            <button class="btn-qty minus">-</button>
+            <input type="number" value="1" min="1" class="product-quantity">
+            <button class="btn-qty plus">+</button>
+        </div>
+    </div>
+    <button class="btn-add-to-cart">Add to Cart</button>
+</div>
+
+
 <script>
 
 let shoppingCart = []; 
@@ -488,20 +709,26 @@ function updateCartUI() {
 
 
 document.querySelectorAll('.btn-add-to-cart').forEach(button => {
-    button.addEventListener('click', function() { 
-        const product = this.parentElement; 
-        const productName = product.querySelector('h3').innerText; 
-        const productPrice = product.querySelector('.price').innerText;		
-		
-        const productDetails = { 
-            name: productName,
-            price: productPrice
-        };
-        shoppingCart.push(productDetails); 
-        updateCartUI(); 
-        localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart)); 
-    });
+  button.addEventListener('click', function() {
+    const product = this.parentElement;
+    const productName = product.querySelector('h3').innerText;
+    const productPrice = product.querySelector('.price').innerText;
+    const quantityInput = product.querySelector('.product-quantity');
+    const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
+ const productImage = product.querySelector('img').getAttribute('src'); // ✅ أضف هذا السطر
+    const productDetails = {
+      name: productName,
+      price: parseFloat(productPrice),
+      quantity: quantity,
+	  image: productImage // ✅ أضف الصورة هنا
+    };
+
+    shoppingCart.push(productDetails);
+    updateCartUI();
+    localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+  });
 });
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -530,6 +757,22 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 });
 
+document.querySelectorAll('.quantity-control').forEach(control => {
+    const minusBtn = control.querySelector('.minus');
+    const plusBtn = control.querySelector('.plus');
+    const input = control.querySelector('.product-quantity');
+
+    minusBtn.addEventListener('click', () => {
+        let value = parseInt(input.value);
+        if (value > 1) input.value = value - 1;
+    });
+
+    plusBtn.addEventListener('click', () => {
+        let value = parseInt(input.value);
+        input.value = value + 1;
+    });
+});
+
 
 
 
@@ -542,6 +785,10 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.textContent = desc.classList.contains('expanded') ? 'Read less' : 'Read more';
   }
 </script>
+
+
+
+
 
 <section id="about" style="padding: 50px 20px; background-color: #f0f0f0;">
   <h2>About US</h2>
