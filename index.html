@@ -698,36 +698,70 @@ Our turmeric is organically grown in the fertile plains of Kufr Abeel, free from
 </div>
 
 
+
 <script>
+
+
 
 let shoppingCart = []; 
 
 function updateCartUI() {
-    const cartCounter = document.querySelector('.cart-counter'); 
-    cartCounter.innerText = shoppingCart.length; 
+    const cartCounter = document.querySelector('.cart-counter');
+    const currentCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    cartCounter.innerText = currentCart.length;
 }
 
 
 document.querySelectorAll('.btn-add-to-cart').forEach(button => {
-  button.addEventListener('click', function() {
+  button.addEventListener('click', function () {
     const product = this.parentElement;
     const productName = product.querySelector('h3').innerText;
     const productPrice = product.querySelector('.price').innerText;
     const quantityInput = product.querySelector('.product-quantity');
     const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
- const productImage = product.querySelector('img').getAttribute('src'); // ✅ أضف هذا السطر
+    const productImage = product.querySelector('img').getAttribute('src');
+
+    // استرجاع السلة من localStorage أو تهيئتها إذا لم تكن موجودة
+    const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+
+    // تحقق إذا كان المنتج موجودًا بالفعل
+    const existingProduct = shoppingCart.find(p => p.name === productName);
+
+    if (existingProduct) {
+      Swal.fire({
+        icon: 'info',
+        title: 'Product Already Added',
+        text: 'You have already added this product to the cart.',
+        confirmButtonText: 'OK'
+      });
+      return; // منع التكرار
+    }
+
+    // إذا لم يكن موجودًا، أضفه
     const productDetails = {
       name: productName,
       price: parseFloat(productPrice),
       quantity: quantity,
-	  image: productImage // ✅ أضف الصورة هنا
+      image: productImage
     };
 
     shoppingCart.push(productDetails);
-    updateCartUI();
     localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+	updateCartUI();
+    
+
+    // إشعار بالإضافة الناجحة
+    Swal.fire({
+      icon: 'success',
+      title: 'Added Successfully',
+      text: 'The product has been added to the cart!',
+      timer: 1500,
+      showConfirmButton: false
+	  
+    });
   });
 });
+
 
 
 
@@ -771,6 +805,8 @@ document.querySelectorAll('.quantity-control').forEach(control => {
         let value = parseInt(input.value);
         input.value = value + 1;
     });
+	
+	
 });
 
 
@@ -787,7 +823,7 @@ document.querySelectorAll('.quantity-control').forEach(control => {
 </script>
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 <section id="about" style="padding: 50px 20px; background-color: #f0f0f0;">
