@@ -387,6 +387,55 @@
 
 
 
+.menu-button {
+      font-size: 30px;
+      cursor: pointer;
+      padding: 10px 20px;
+      background-color: #dbcd48;
+      color: white;
+      border: none;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1001;
+    }
+
+    /* القائمة الجانبية */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      background-color: #dbcd48;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+    }
+
+    .sidebar a {
+      padding: 12px 24px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #333;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #727e40;
+      color: white;
+    }
+
+    /* الزر للإغلاق */
+    .closebtn {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 36px;
+      color: white;
+    }
 		
 </style>
 
@@ -413,6 +462,8 @@
 <header>
 <div id="google_translate_element" style="position: absolute; top: 20px; left: 20px; z-index: 999;"></div>
     <div class="header-content">
+		
+<p>🌿</p>
         <h1>Tabi3atna Store</h1>
         <p>"Tabi3atna — Pure Dairy, Moldovan Touch."</p>
 		
@@ -431,7 +482,19 @@
         <i class="fas fa-shopping-cart"></i>
         <span class="cart-counter">0</span>
 		
-		
+	<!-- زر الثلاث شحطات -->
+<button class="menu-button" onclick="openSidebar()">☰</button>
+
+<!-- القائمة الجانبية -->
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a>
+  <a href="index.html">🏠 Home</a>
+  <a href="products.html">🌿 Organic Products</a>
+  <a href="sweets.html">🍬 Healthy Sweets</a>
+  <a href="others.html">🧺 Other Products</a>
+  <a href="contact.html">📞 Contact Us</a>
+</div>
+	
 		
 </header>
 
@@ -447,7 +510,7 @@
     <h2>Featured Products</h2>
 	
 	<div class="product">
-    <img src="4.jpg" alt="Product 1">
+    <img src="44.jpeg" alt="Product 1">
     <h3>Homemade Kefir</h3>
     <div class="short-description" id="desc1">
         <p class="description">
@@ -578,14 +641,14 @@ It’s a staple in traditional recipes, such as olive pickling or as a health to
     <h3>Adjika spicy sauce</h3>
     <div class="short-description" id="desc6">
         <p class="description">           
-Adjika is a traditional hot sauce, lovingly homemade from 100% natural ingredients — tomatoes, apples, sweet and hot peppers, garlic, and aromatic spices. It’s thick, fragrant, and boldly flavorful, adding a warm, vibrant touch to any meal. Free from vinegar and preservatives — just pure ingredients and heartfelt care. Perfect alongside meats, stirred into stews and grains, enjoyed with potatoes, or simply spread on a piece of fresh bread. Just one spoonful turns your meal into an unforgettable experience.
+Adjika is a traditional hot sauce, lovingly homemade from 100% natural ingredients — tomatoes, apples, sweet and hot peppers, garlic, and aromatic spices. It’s thick, fragrant, and boldly flavorful, adding a warm, vibrant touch to any meal. Free of preservatives — just pure ingredients and heartfelt care. Perfect alongside meats, stirred into stews and grains, enjoyed with potatoes, or simply spread on a piece of fresh bread. Just one spoonful turns your meal into an unforgettable experience.
         </p>
         <span class="fade-overlay"></span>
     </div>    
     <span class="read-more" onclick="toggleDescription('desc6', this)">Read more</span>
-    <p class="description">750 ml</p>
+    <p class="description">500 gm</p>
     <p>Price: JD</p>
-    <p class="price">0</p>
+    <p class="price">4.99</p>
 	<div class="actions-row">
         <div class="quantity-control">
             <button class="btn-qty minus">-</button>
@@ -609,9 +672,9 @@ Today, it is widely used in skincare products, medicines, and dietary supplement
         <span class="fade-overlay"></span>
     </div>    
     <span class="read-more" onclick="toggleDescription('desc7', this)">Read more</span>
-    <p class="description">750 ml</p>
+    <p class="description">30 ml</p>
     <p>Price: JD</p>
-    <p class="price">0</p>
+    <p class="price">6.99</p>
 	<div class="actions-row">
         <div class="quantity-control">
             <button class="btn-qty minus">-</button>
@@ -634,9 +697,9 @@ Often consumed as a dietary supplement (in capsules or granules), bee pollen can
         <span class="fade-overlay"></span>
     </div>    
     <span class="read-more" onclick="toggleDescription('desc8', this)">Read more</span>
-    <p class="description">750 ml</p>
+    <p class="description">250 gm</p>
     <p>Price: JD</p>
-    <p class="price">0</p>
+    <p class="price">4.99</p>
 	<div class="actions-row">
         <div class="quantity-control">
             <button class="btn-qty minus">-</button>
@@ -649,7 +712,7 @@ Often consumed as a dietary supplement (in capsules or granules), bee pollen can
 
 <div class="product">
     <img src="9.jpg" alt="Product 9">
-    <h3>Zabkanka Cake</h3>
+    <h3>Zapekanka Cake</h3>
     <div class="short-description" id="desc9">
         <p class="description">           
 This delicious cake is made using a traditional Moldovan technique with Qareesh cheese, eggs, and semolina.
@@ -659,9 +722,9 @@ It’s rich in protein, incredibly tasty, and a wholesome treat for any time of 
         <span class="fade-overlay"></span>
     </div>    
     <span class="read-more" onclick="toggleDescription('desc9', this)">Read more</span>
-    <p class="description">750 ml</p>
+    <p class="description">1 Kg</p>
     <p>Price: JD</p>
-    <p class="price">0</p>
+    <p class="price">19.99</p>
 	
     <div class="actions-row">
         <div class="quantity-control">
@@ -684,9 +747,9 @@ Our turmeric is organically grown in the fertile plains of Kufr Abeel, free from
         <span class="fade-overlay"></span>
     </div>    
     <span class="read-more" onclick="toggleDescription('desc10', this)">Read more</span>
-    <p class="description">750 ml</p>
+    <p class="description">250 gm</p>
     <p>Price: JD</p>
-    <p class="price">0</p>
+    <p class="price">2.99</p>
 	<div class="actions-row">
         <div class="quantity-control">
             <button class="btn-qty minus">-</button>
@@ -711,6 +774,13 @@ function updateCartUI() {
     cartCounter.innerText = currentCart.length;
 }
 
+function openSidebar() {
+    document.getElementById("mySidebar").style.width = "250px";
+  }
+
+  function closeSidebar() {
+    document.getElementById("mySidebar").style.width = "0";
+  }
 
 document.querySelectorAll('.btn-add-to-cart').forEach(button => {
   button.addEventListener('click', function () {
@@ -852,13 +922,13 @@ This is Tabi3atna — nature, purity, and heritage in every jar.
 
 <footer>
     <div class="contact-info">
-        <p>Contact us: Tabi3atnaStore@gmail.com | Phone: +962777760023</p>
+        <p>Contact us: Tabi3atna@gmail.com | Phone: +962770052801</p>
     </div>
     <div class="social-links">
         <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
         <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-		<a href="https://wa.me/962798949137" target="_blank"><i class="fab fa-whatsapp"></i></a>
+		<a href="https://wa.me/962770052801" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
     <p>&copy; 2025 Tabi3atna Store. All rights reserved.</p>
 </footer>
