@@ -463,7 +463,7 @@
 <div id="google_translate_element" style="position: absolute; top: 20px; left: 20px; z-index: 999;"></div>
     <div class="header-content">
 		
-<p>🌿</p>
+        <p>🌿</p>
         <h1>Tabi3atna Store</h1>
         <p>"Tabi3atna — Pure Dairy, Moldovan Touch."</p>
 		
@@ -489,9 +489,9 @@
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a>
   <a href="index.html">🏠 Home</a>
-  <a href="products.html">🌿 Organic Products</a>
-  <a href="sweets.html">🍬 Healthy Sweets</a>
-  <a href="others.html">🧺 Other Products</a>
+  <a href="index.html">🌿 Organic Products</a>
+  <a href="#" onclick="showComingSoon()">🍬 Healthy Sweets</a>
+  <a href="#" onclick="showComingSoon()">🧺 Other Products</a>
   <a href="contact.html">📞 Contact Us</a>
 </div>
 	
@@ -780,6 +780,15 @@ function openSidebar() {
 
   function closeSidebar() {
     document.getElementById("mySidebar").style.width = "0";
+  }
+
+function showComingSoon() {
+    Swal.fire({
+      icon: 'info',
+      title: 'Coming Soon',
+      text: 'This section is not available yet. Stay tuned!',
+      confirmButtonText: 'OK'
+    });
   }
 
 document.querySelectorAll('.btn-add-to-cart').forEach(button => {
