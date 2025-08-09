@@ -532,7 +532,12 @@ const orderID = generateOrderID();
     total += itemTotal;
   });
 
-  message += `\n💰 *المجموع الكلي:* JD ${total.toFixed(2)}\n\nشكراً لكم!`;
+  message += `\n💰 *المجموع الكلي:* JD ${total.toFixed(2)}\n\n`;
+  
+  // إضافة روابط التواصل
+message += `📌 *تابعنا على فيسبوك:*\nhttps://web.facebook.com/people/Tabi3atna/61578864647688/?sk=about\n`;
+message += `📌 *تابعنا على إنستغرام:*\nhttps://www.instagram.com/tabi3atna/?igsh=a29oOXY2enVmbzVw#\n\n`;
+message += `شكراً لكم!`;
 
   const encodedMessage = encodeURIComponent(message);
   const phoneNumber = "962770052801"; // ← رقم البائع
@@ -582,4 +587,3 @@ updateCartUI();
 
 </body>
 </html>
-
