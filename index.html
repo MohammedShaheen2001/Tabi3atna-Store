@@ -437,6 +437,56 @@
       color: white;
     }
 		
+		
+	.notice-wrap{
+  width: 100%;
+  max-width: 1600px;      /* adjust max width if needed */
+  margin: 10px auto 0;   /* spacing under the tagline */
+  overflow: hidden;
+  background: rgba(255,255,255,0.85);
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.notice span {
+  display: inline-block;
+  padding-left: 20px; /* مسافة بين النص المكرر */
+}
+/* the moving element */
+.notice{
+
+  display: inline-block;
+  white-space: nowrap;
+  /* start off-screen right and move to off-screen left */
+  transform: translateX(100%);
+  animation: marquee 25s linear infinite;
+  font-size: 14px;
+  color: #222;
+}
+
+/* pause on hover (helpful for reading) */
+.notice-wrap:hover .notice,
+.notice:focus {
+  animation-play-state: paused;
+}
+
+/* keyframes: translate from +100% to -100% */
+@keyframes marquee {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Responsive: slower / smaller on small screens */
+@media (max-width: 480px) {
+  .notice { font-size: 13px; animation-duration: 25s; }
+  .notice-wrap { padding: 8px; }
+}
+
+
+		
+		
+		
 </style>
 
 <script type="text/javascript">
@@ -461,17 +511,30 @@
 
 <header>
 <div id="google_translate_element" style="position: absolute; top: 20px; left: 20px; z-index: 999;"></div>
+
     <div class="header-content">
-		
         <p>🌿</p>
         <h1>Tabi3atna Store</h1>
-        <p>"Tabi3atna — Pure Dairy, Moldovan Touch."</p>
-		
+        <p>"Tabi3atna — Organic, Healthy and Pure Product."</p>
     </div>
+	
 	
     <div class="gift-box">
         <img class="gift-image" src="shoping.jpg" alt="Gift">
     </div>
+	
+	<!-- الجملة المتحركة -->
+		<div class="notice-wrap" aria-hidden="false" title="Important notice — hover to pause">
+      <div class="notice">
+<span>
+      🌿 Some of our products are freshly prepared after your order, to ensure they reach you at peak freshness and quality. So, we kindly ask for a little time to deliver the excellence, you deserve !  
+      ...... 🌿 Some of our products are freshly prepared after your order, to ensure they reach you at peak freshness and quality. So, we kindly ask for a little time to deliver the excellence, you deserve !
+    </span>      
+	</div>
+    </div>
+	
+	
+	
 <div class="login-register">
         <a href="#about">About US</a>
     </div>
@@ -514,12 +577,8 @@
     <h3>Homemade Kefir</h3>
     <div class="short-description" id="desc1">
         <p class="description">
-Kefir milk is one of the oldest and most nutrient-rich fermented beverages, originating from the Caucasus Mountains, where it was known as the “milk wine” for its miraculous benefits. It’s made by fermenting animal or plant-based milk using kefir grains, a powerful blend of probiotics and live yeasts, resulting in a creamy texture and refreshing taste that’s both tangy and pleasantly tart.
-Just one cup contains trillions of beneficial microorganisms (like Lactobacillus and Bifidobacterium) that help restore gut microbiome balance, enhance digestion, and reduce bloating and constipation. It’s also rich in vitamins B12 and K2, essential for nerve and bone health, along with easily digestible proteins.
-Recent studies confirm its role in boosting immunity by stimulating antibody production, lowering cholesterol, and even fighting chronic inflammation. It’s especially recommended for people with IBS and as a nutritional supplement after antibiotic use.
-Kefir can be enjoyed as a refreshing morning drink, blended into smoothies and juices, or used in salad dressings as a yogurt alternative. In some cultures, it’s used in baking fluffy kefir pancakes or making soft cheeses.
-In short, kefir isn’t just a drink… it’s a natural pharmacy that nourishes you from the inside out!
-        </p>
+<b>"Kefir is a Probiotic Bomb"</b> Kefir milk is a nutrient-rich fermented drink that originated in the Caucasus Mountains, once called “milk wine” for its health benefits. Made by fermenting milk with kefir grains—packed with probiotics and live yeasts—it has a creamy, tangy taste. Just one cup contains trillions of beneficial microbes (like Lactobacillus and Bifidobacterium) that support digestion, gut health, and immunity. It’s also high in vitamins B12 and K2 and easy-to-digest proteins. Studies show kefir can reduce bloating, inflammation, and cholesterol, making it ideal for people with IBS or after antibiotics. Enjoy it as a drink, in smoothies, salad dressings, or even in baking. Kefir is more than a beverage—it’s a natural boost for your health.
+       </p>
         <span class="fade-overlay"></span>
     </div>
     <span class="read-more" onclick="toggleDescription('desc1', this)">Read more</span>
@@ -538,13 +597,10 @@ In short, kefir isn’t just a drink… it’s a natural pharmacy that nourishes
 	
 	<div class="product">
     <img src="1.png" alt="Product 2">
-    <h3>Fresh Qareesh Cheese</h3>
+    <h3>Cottage Cheese</h3>
     <div class="short-description" id="desc2">
         <p class="description">      
-Qareesh cheese is one of the oldest and most beneficial natural cheeses for the human body. It’s made by slowly curdling fresh milk, then gently straining the whey to preserve its distinct soft and lumpy texture. Its light, balanced tang and cloud-like creaminess make it an ideal choice for anyone seeking healthy food that’s easy on the stomach.
-It’s a true treasure trove of high-quality protein—offering up to 28 grams per cup!—keeping you full for hours and supporting muscle building, especially for athletes. It’s also packed with calcium, phosphorus, and selenium, essential for strong bones, immune defense, and glowing skin. Best of all, it's low in fat and calories, and free from additives when made at home.
-In the kitchen, it’s a canvas for creativity: add it to salads as a healthy mayo substitute, blend it with herbs for a delicious spread, or use it in fluffy pancakes and savory pies. Even desserts love it—try it with honey and fruit for a high-protein treat. Historically, it’s a staple in Middle Eastern and Slavic cuisines, cherished as a symbol of home and care.
-Simply put, cottage cheese is more than food… it’s a smart nutrition philosophy fit for all ages—bringing back simplicity and purpose to your meals. Try it at breakfast tomorrow and discover why it has stood the test of time as a timeless classic!
+<b>"High-quality protein, up to 28g per cup!"</b> Cottage cheese, also known as Alqareesh cheese, is one of the oldest and healthiest natural cheeses. Made by curdling fresh milk and straining the whey, it has a soft, lumpy texture and a light, creamy tang. It's rich in high-quality protein (up to 28g per cup!), calcium, and essential minerals like phosphorus and selenium—great for muscles, bones, and skin. Low in fat and calories, it's easy to digest and perfect for athletes, dieters, or anyone seeking clean nutrition. Use it in salads, spreads, pancakes, or even desserts with honey and fruit. A staple in Middle Eastern and Slavic kitchens, Qareesh cheese is more than food—it's a timeless, nourishing tradition.
         </p>
         <span class="fade-overlay"></span>
     </div>   
@@ -569,7 +625,7 @@ Simply put, cottage cheese is more than food… it’s a smart nutrition philoso
         <p class="description">        
 Our pure cow ghee is 100% natural — free from any additives, colorings, or artificial flavorings. It's rich, flavorful, and infused with the authentic buttery taste you love.
 An ideal alternative to hydrogenated oils, it’s perfect for cooking, frying, or adding depth to your favorite dishes. Every spoonful is both wholesome and delicious, delivering the goodness your body deserves.
-We proudly craft it in Kufr Abeel, using traditional methods to preserve its purity and taste — just like it was meant to be.
+We proudly craft it in KafrAbeel, using traditional methods to preserve its purity and taste — just like it was meant to be.
         </p>
         <span class="fade-overlay"></span>
     </div>
@@ -742,7 +798,7 @@ It’s rich in protein, incredibly tasty, and a wholesome treat for any time of 
     <h3>Organic Turmeric</h3>
     <div class="short-description" id="desc10">
         <p class="description">           
-Our turmeric is organically grown in the fertile plains of Kufr Abeel, free from any chemicals or additives. Known for its vibrant color and earthy flavor, turmeric is much more than a spice — it’s a powerful natural remedy. Thanks to its active compound curcumin, turmeric offers a wide range of health benefits. It acts as a strong anti-inflammatory agent that supports joint health and helps reduce chronic inflammation. It’s also a potent antioxidant that protects your cells from damage and slows signs of aging. Turmeric is believed to enhance brain function and memory, improve heart health by regulating cholesterol levels, and help stabilize blood sugar. It also supports healthy digestion and strengthens the immune system. For optimal absorption, it’s best consumed with a pinch of black pepper. Please consult your doctor before use if you are taking blood-thinning medication.
+Our turmeric is organically grown in the fertile plains of KafrAbeel, free from any chemicals or additives. Known for its vibrant color and earthy flavor, turmeric is much more than a spice — it’s a powerful natural remedy. Thanks to its active compound curcumin, turmeric offers a wide range of health benefits. It acts as a strong anti-inflammatory agent that supports joint health and helps reduce chronic inflammation. It’s also a potent antioxidant that protects your cells from damage and slows signs of aging. Turmeric is believed to enhance brain function and memory, improve heart health by regulating cholesterol levels, and help stabilize blood sugar. It also supports healthy digestion and strengthens the immune system. For optimal absorption, it’s best consumed with a pinch of black pepper. Please consult your doctor before use if you are taking blood-thinning medication.
         </p>
         <span class="fade-overlay"></span>
     </div>    
@@ -760,7 +816,130 @@ Our turmeric is organically grown in the fertile plains of Kufr Abeel, free from
     <button class="btn-add-to-cart">Add to Cart</button>
 </div>
 
+<div class="product">
+    <img src="11.jpeg" alt="Product 11">
+    <h3>Blackberry</h3>
+    <div class="short-description" id="desc11">
+        <p class="description">           
+ Discover the Power of Blackberries!
+Blackberries are a natural superfruit packed with essential vitamins and antioxidants. Rich in Vitamin C to boost immunity, Vitamin K to support bone health, and dietary fiber to aid digestion. They also contain powerful antioxidants like anthocyanins that help fight aging, support heart health, and enhance brain function. Perfect for those who care about health and beauty — 100% natural and delicious. Make it part of your daily routine!
+        </p>
+        <span class="fade-overlay"></span>
+    </div>    
+    <span class="read-more" onclick="toggleDescription('desc11', this)">Read more</span>
+    <p class="description">500 gm</p>
+    <p>Price: JD</p>
+    <p class="price">6.99</p>
+	<div class="actions-row">
+        <div class="quantity-control">
+            <button class="btn-qty minus">-</button>
+            <input type="number" value="1" min="1" class="product-quantity">
+            <button class="btn-qty plus">+</button>
+        </div>
+    </div>
+    <button class="btn-add-to-cart">Add to Cart</button>
+</div>
 
+<div class="product">
+    <img src="12.jpeg" alt="Product 12">
+    <h3>Blueberry</h3>
+    <div class="short-description" id="desc12">
+        <p class="description">           
+ Blueberries – Delicious Taste, Incredible Benefits!
+Packed with Vitamin C to boost immunity, Vitamin K for strong bones, plus fiber for better digestion and antioxidants to protect your body from diseases. Their sweet, refreshing flavor makes them perfect for smoothies, desserts, or a healthy snack anytime.
+Choose the best for your health – try blueberries today!
+Available in two sizes: 500g and 1kg.
+        </p>
+        <span class="fade-overlay"></span>
+    </div>    
+    <span class="read-more" onclick="toggleDescription('desc12', this)">Read more</span>
+    <p class="description">500 gm</p>
+    <p>Price: JD</p>
+    <p class="price">6.99</p>
+	<div class="actions-row">
+        <div class="quantity-control">
+            <button class="btn-qty minus">-</button>
+            <input type="number" value="1" min="1" class="product-quantity">
+            <button class="btn-qty plus">+</button>
+        </div>
+    </div>
+    <button class="btn-add-to-cart">Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="13.jpeg" alt="Product 13">
+    <h3>Red Currant</h3>
+    <div class="short-description" id="desc13">
+        <p class="description">           
+ European Red Currant – A Bold Flavor with Natural Benefits!
+Red currant is a perfect choice for those who love a tangy, refreshing taste, with its vibrant red color and intense flavor. It’s rich in vitamin C to boost immunity and packed with antioxidants that support overall health and fight free radicals. Ideal for making jams, sauces, or adding a gourmet touch to desserts.
+Add a European flair to your kitchen – try red currants today!
+        </p>
+        <span class="fade-overlay"></span>
+    </div>    
+    <span class="read-more" onclick="toggleDescription('desc13', this)">Read more</span>
+    <p class="description">500 gm</p>
+    <p>Price: JD</p>
+    <p class="price">6.99</p>
+	<div class="actions-row">
+        <div class="quantity-control">
+            <button class="btn-qty minus">-</button>
+            <input type="number" value="1" min="1" class="product-quantity">
+            <button class="btn-qty plus">+</button>
+        </div>
+    </div>
+    <button class="btn-add-to-cart">Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="14.jpeg" alt="Product 14">
+    <h3>Raspberry</h3>
+    <div class="short-description" id="desc14">
+        <p class="description">           
+ Raspberries – Healthy Delight in Every Bite!
+Raspberries are the perfect choice for fresh fruit lovers, with their sweet and tangy flavor and rich content of vitamin C and antioxidants that help maintain youthful skin and support heart health. Whether added to your smoothie or enjoyed as a snack, they provide natural energy and vitality.
+Don’t miss out on the delicious benefits – get fresh raspberries today!
+        </p>
+        <span class="fade-overlay"></span>
+    </div>    
+    <span class="read-more" onclick="toggleDescription('desc14', this)">Read more</span>
+    <p class="description">500 gm</p>
+    <p>Price: JD</p>
+    <p class="price">6.99</p>
+	<div class="actions-row">
+        <div class="quantity-control">
+            <button class="btn-qty minus">-</button>
+            <input type="number" value="1" min="1" class="product-quantity">
+            <button class="btn-qty plus">+</button>
+        </div>
+    </div>
+    <button class="btn-add-to-cart">Add to Cart</button>
+</div>
+
+<div class="product">
+    <img src="15.jpeg" alt="Product 15">
+    <h3>Mixed Berries</h3>
+    <div class="short-description" id="desc15">
+        <p class="description">           
+ Mixed Berry Bag – All Your Favorite Berries in One!
+Enjoy a delicious blend of the best berries: blueberries, raspberries, and blackberries, all packed together in one convenient bag. This tasty mix is rich in vitamin C, antioxidants, and fiber to boost your immunity and keep you energized all day. Perfect for smoothies, desserts, or a healthy, flavorful snack.
+Save time and get all the berry flavors you love in one package – order your mixed berry bag today!
+        </p>
+        <span class="fade-overlay"></span>
+    </div>    
+    <span class="read-more" onclick="toggleDescription('desc15', this)">Read more</span>
+    <p class="description">500 gm</p>
+    <p>Price: JD</p>
+    <p class="price">6.99</p>
+	<div class="actions-row">
+        <div class="quantity-control">
+            <button class="btn-qty minus">-</button>
+            <input type="number" value="1" min="1" class="product-quantity">
+            <button class="btn-qty plus">+</button>
+        </div>
+    </div>
+    <button class="btn-add-to-cart">Add to Cart</button>
+</div>
 
 <script>
 
@@ -911,20 +1090,20 @@ document.querySelectorAll('.quantity-control').forEach(control => {
    <p><b> We Are Tabi3atna — A Jordanian-Moldovan Family Returning to Nature 🌿</b><p/p>
 We are a Jordanian-Moldovan family living in Amman, with roots in Irbid — the bride of the north — and having lived as well in southern Jordan. Nearly five years ago, we made a life-changing decision: to return to nature and embrace a healthier lifestyle.
 
-We began by eliminating harmful industrial products from our home — saying goodbye to seed oils like sunflower and corn oil, and drastically reducing our sugar consumption by 80%. In their place, we turned to pure animal ghee and extra virgin olive oil.
+We began by eliminating harmful industrial products from our home — saying goodbye to seed oils like sunflower and corn oil, and drastically reducing our sugar consumption. In their place, we turned to pure animal ghee and extra virgin olive oil.
 
 Our journey led us to rediscover traditional and nourishing foods:
 🐄 Pure cow ghee and butter without any additives.
-🧀 Homemade Qareesh cheese (Tefourgh) made from fresh buttermilk.
+🧀 Homemade Qareesh cheese (Tvorg) made from fresh buttermilk.
 🥛 Delicious, probiotic-rich kefir crafted from raw cow’s milk.
 
-All of this and more, we found in our village — in the heart of nature, in Kufrabil.
+All of this and more, we found in our village — in the heart of nature, in KafrAbeel.
 
 We then ventured into the northern highlands of Irbid, where we sourced 100% pure bee honey from trusted friends and beekeepers. From their hives, we also obtained propolis, bee pollen, royal jelly, and even bee venom.
 
 From southern Jordan, we brought you natural organic apple cider vinegar, unfiltered and made the traditional way.
-
-This is our life. This is our nature.
+We also decided to explore everything that is natural and organic, so you can try them out and live a healthy life.
+This is our life.
 This is Tabi3atna — nature, purity, and heritage in every jar.
   </p>
 </section>
@@ -934,9 +1113,9 @@ This is Tabi3atna — nature, purity, and heritage in every jar.
         <p>Contact us: Tabi3atna@gmail.com | Phone: +962770052801</p>
     </div>
     <div class="social-links">
-        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://web.facebook.com/people/Tabi3atna/61578864647688/?sk=about" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/tabi3atna/?igsh=a29oOXY2enVmbzVw#" target="_blank"><i class="fab fa-instagram"></i></a>
 		<a href="https://wa.me/962770052801" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
     <p>&copy; 2025 Tabi3atna Store. All rights reserved.</p>
