@@ -578,9 +578,8 @@ if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
   cancelButtonText: 'Cancel'
 }).then((result) => {
   if (result.isConfirmed) {
-    setTimeout(() => {
-      window.open(whatsappURL, "_blank");
-    }, 1000);
+     // إزالة المؤقت واستخدام location.href مباشرة
+    window.location.href = whatsappURL;
 	
 	localStorage.removeItem('shoppingCart');
 shoppingCart = [];
@@ -611,3 +610,4 @@ updateCartUI();
 
 </body>
 </html>
+
