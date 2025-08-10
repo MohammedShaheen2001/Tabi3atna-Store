@@ -297,6 +297,21 @@ input:focus, textarea:focus {
 }
 
 
+.btn-back-shop {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #4CAF50; /* أخضر */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.btn-back-shop:hover {
+  background-color: #388e3c;
+}
 
   </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -314,7 +329,7 @@ input:focus, textarea:focus {
 </head>
 
 <body>
-<img src="shopping.jpg" alt="Background Image" style="position: fixed; z-index: -1; width: 100%; height: 100%; top: 0; left: 0; opacity: 0.9;">
+<img src="shoppping.jpeg" alt="Background Image" style="position: fixed; z-index: -1; width: 100%; height: 100%; top: 0; left: 0; opacity: 0.6;">
 
 <div class="cart-container">
   <div id="google_translate_element" style="margin-bottom: 10px;"></div>
@@ -324,6 +339,9 @@ input:focus, textarea:focus {
 
 <button id="clear-cart-btn" class="btn-clear-cart">🗑️ Clear Cart</button>
 
+<div style="text-align: center; margin-top: 10px;">
+  <a href="index.html" class="btn-back-shop">🔙 Back to Shop</a>
+</div>
   <!-- نموذج بيانات الزبون -->
   <!-- نموذج معلومات العميل بشكل أنيق -->
   <hr style="margin: 20px 0; border: none; height: 1px; background-color: #eee;">
@@ -541,7 +559,13 @@ message += `شكراً لكم!`;
 
   const encodedMessage = encodeURIComponent(message);
   const phoneNumber = "962770052801"; // ← رقم البائع
-  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  // كشف نوع الجهاز
+let whatsappURL = '';
+if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+  whatsappURL = `whatsapp://send?phone=${phoneNumber}&text=${encodedMessage}`;
+} else {
+  whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+}
 
   Swal.fire({
   title: 'Are you sure?',
